@@ -135,7 +135,7 @@ namespace ToGo
                             }
                             ww.Label_HotelCount.Content = a;
                         }
-                        this.Close();
+                        //this.Close();
                         ww.Show();
                     }
                 }

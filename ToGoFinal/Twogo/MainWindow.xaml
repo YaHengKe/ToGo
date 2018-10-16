@@ -13,18 +13,18 @@
             <ScrollViewer>
             </ScrollViewer>
             <Image Source="Image/a-bruised-reed-he-will-not-break-ldlw4pva-c28776e7606b42908a9910d30962a8b4.jpg" Opacity="0.4" UseLayoutRounding="False"/>
-            <Border HorizontalAlignment="Center" CornerRadius="20" Background="Gray" Opacity="0.5" Height="639" Margin="611,278,501,163" VerticalAlignment="Center" Width="808">
+            <Border HorizontalAlignment="Center" CornerRadius="20" Background="Gray" Opacity="0.5" Height="639" Margin="582,278,482,163" VerticalAlignment="Center" Width="856">
                 <StackPanel />
             </Border>
             <Label Content="國家或城市" Margin="652,335,1125,707" FontSize="24" FontWeight="Bold" Foreground="#FF494747"/>
-            <Label Content="日期" Foreground="#FF494747"  Margin="650,456,1198,586" FontSize="24" FontWeight="Bold"/>
+            <Label Content="日期" Foreground="#FF494747"  Margin="650,473,1198,569" FontSize="24" FontWeight="Bold"/>
             <TextBox Name="TextBox_City" Foreground="#FF494747" HorizontalAlignment="Left" Height="51" Margin="666,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontSize="36" KeyUp="TextBox_City_KeyUp"/>
-            <Label Content="住宿人數" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1082,344,0,0" VerticalAlignment="Top"/>
-            <TextBox Text="1" Name="TextBox_Room" HorizontalAlignment="Left" Height="51" Margin="1082,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="36" />
-            <Label Content="間客房" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1273,392,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.323,-0.126"/>
-            <TextBox Text="2" Name="TxtRoomType" HorizontalAlignment="Left" Height="51" Margin="1082,503,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="36"/>
-            <Label Content="位住宿" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1273,508,0,0" VerticalAlignment="Top"/>
-            <Border CornerRadius="15" HorizontalAlignment="Left" Margin="1109,668,0,0" VerticalAlignment="Top" Width="210" Height="133" BorderBrush="White" >
+            <Label Content="住宿房數" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1066,333,0,0" VerticalAlignment="Top"/>
+            <TextBox Text="1" Name="TextBox_Room" HorizontalAlignment="Left" Height="51" Margin="1082,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="36" />
+            <Label Content="間客房" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1273,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.323,-0.126"/>
+            <TextBox Text="2" Name="TxtRoomType" HorizontalAlignment="Left" Height="51" Margin="1082,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="36"/>
+            <Label Content="位住宿" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1273,530,0,0" VerticalAlignment="Top"/>
+            <Border CornerRadius="15" HorizontalAlignment="Left" Margin="1109,678,0,0" VerticalAlignment="Top" Width="210" Height="133" BorderBrush="White" >
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFEE9F2D" Offset="0"/>
@@ -53,15 +53,16 @@
                     <Calendar Name="CalendarSearch" SelectionMode="SingleRange" SelectedDatesChanged="searchDate_SelectedDatesChanged" Height="174" Width="192"/>
                 </Viewbox>
             </Expander>
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="50" Margin="666,503,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
-            <Label Name="SearchSDate" Content="請選擇" HorizontalAlignment="Left" Margin="686,510,0,0" VerticalAlignment="Top" FontSize="22"/>
-            <Label Name="SearchEDate" Content="請選擇" HorizontalAlignment="Left" Margin="873,511,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.48,0.566" FontSize="22"/>
-            <Label Content="～" Foreground="#FF494747" HorizontalAlignment="Left" Margin="821,501,0,0" VerticalAlignment="Top" FontSize="36" RenderTransformOrigin="-3.481,1.06"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="50" Margin="666,520,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+            <Label Name="SearchSDate" Content="請選擇" HorizontalAlignment="Left" Margin="686,527,0,0" VerticalAlignment="Top" FontSize="22"/>
+            <Label Name="SearchEDate" Content="請選擇" HorizontalAlignment="Left" Margin="873,528,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.48,0.566" FontSize="22"/>
+            <Label Content="～" Foreground="#FF494747" HorizontalAlignment="Left" Margin="821,518,0,0" VerticalAlignment="Top" FontSize="36" RenderTransformOrigin="-3.481,1.06"/>
             <Label Name="City_Require" Content="請輸入國家或城市" Opacity="0" HorizontalAlignment="Left" Margin="872,340,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
             <Label Name="Date_Require" Content="請拖拉選取日期" Opacity="0" HorizontalAlignment="Left" Margin="890,462,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
-            <Label x:Name="Room_Require" Content="請輸入客房數" Opacity="0" HorizontalAlignment="Left" Margin="893,615,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
-            <Label x:Name="People_Require" Content="請輸入人數" Opacity="0" HorizontalAlignment="Left" Margin="1018,724,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
+            <Label x:Name="Room_Require" Content="請輸入客房數" Opacity="0" HorizontalAlignment="Left" Margin="1236,335,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
+            <Label x:Name="People_Require" Content="請輸入人數" Opacity="0" HorizontalAlignment="Left" Margin="1255,473,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
             <Image HorizontalAlignment="Left" Height="90" Margin="24,0,0,0" VerticalAlignment="Top" Width="55" Source="Image/貳行LOGO.png"/>
+            <Label Content="住宿人數" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1066,473,0,0" VerticalAlignment="Top"/>
         </Grid>
 
     </Viewbox>
