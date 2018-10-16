@@ -61,6 +61,7 @@
             <Label Name="Date_Require" Content="請拖拉選取日期" Opacity="0" HorizontalAlignment="Left" Margin="890,462,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
             <Label x:Name="Room_Require" Content="請輸入客房數" Opacity="0" HorizontalAlignment="Left" Margin="893,615,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
             <Label x:Name="People_Require" Content="請輸入人數" Opacity="0" HorizontalAlignment="Left" Margin="1018,724,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFF6F7F9" Background="#FF746666" IsEnabled="False"/>
+            <Image HorizontalAlignment="Left" Height="90" Margin="24,0,0,0" VerticalAlignment="Top" Width="55" Source="Image/貳行LOGO.png"/>
         </Grid>
 
     </Viewbox>
