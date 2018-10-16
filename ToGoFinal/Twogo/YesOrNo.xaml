@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToGo"
         mc:Ignorable="d"
-        Title="YesOrNo" Height="381.516" Width="684.006">
+        Title="YesOrNo" Height="381.516" Width="684.006"
+        WindowStartupLocation="CenterScreen">
     <Viewbox Stretch="Fill">
         <Grid Height="420" Width="794">
             <Border CornerRadius="15" HorizontalAlignment="Left" Margin="268,305,0,0" VerticalAlignment="Top" Width="126" Height="71" >

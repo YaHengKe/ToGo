@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToGo"
         mc:Ignorable="d"
-        Title="testbuy" Height="867" Width="1040.5">
+        Title="Order Window" Height="926.656" Width="1040.5"
+        WindowStartupLocation="CenterScreen" >
     <Grid>
-        <Rectangle Margin="100,347,96,95" Stroke="#FFA7C6FB" StrokeThickness="2" RadiusY="8" RadiusX="8"/>
+        <Rectangle Margin="91,10,105,550" Stroke="#FFA7C6FB" StrokeThickness="2" RadiusY="8" RadiusX="8"/>
 
 
-        <Image HorizontalAlignment="Left" Height="27" Margin="150,347,0,0" VerticalAlignment="Top" Width="25" Source="Image/id.png" RenderTransformOrigin="15.95,12.364"/>
-        <Label Content="入住人資料" FontSize="18" Margin="180,347,615,416" RenderTransformOrigin="0.475,0.791" FontWeight="Bold" />
-        <Canvas Margin="289,372,257,113" HorizontalAlignment="Center" VerticalAlignment="Center" Height="236" Width="368">
+        <Image HorizontalAlignment="Left" Height="27" Margin="139,17,0,0" VerticalAlignment="Top" Width="25" Source="Image/id.png" RenderTransformOrigin="15.95,12.364"/>
+        <Label Content="入住人資料" FontSize="18" Margin="169,17,626,746" RenderTransformOrigin="0.475,0.791" FontWeight="Bold" />
+        <Canvas Margin="311,84,353,564" HorizontalAlignment="Center" VerticalAlignment="Center" Height="248" Width="368">
             <Label Content="英文名(同護照)" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="120" Canvas.Left="36" Canvas.Top="30"/>
             <Label Content="英文姓(同護照)" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="118" Canvas.Left="184" Canvas.Top="30"/>
             <Label Content="電子信箱" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="80" Canvas.Top="106" Canvas.Left="38"/>
@@ -28,7 +29,7 @@
             <Image HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="20" Source="Image/placeholder.png" Stretch="Fill" RenderTransformOrigin="0.712,0.875" Canvas.Left="168" Canvas.Top="190"/>
             <Image HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="25" Source="Image/id-card.png" Stretch="Fill" RenderTransformOrigin="0.712,0.875" Canvas.Left="11" Canvas.Top="34"/>
         </Canvas>
-        <Rectangle Fill="#FFD7DEE2" HorizontalAlignment="Center" Height="4" Margin="165,353,145,364" StrokeThickness="2" VerticalAlignment="Center" Width="604"/>
+        <Rectangle Fill="#FFD7DEE2" HorizontalAlignment="Center" Height="4" Margin="139,59,289,833" StrokeThickness="2" VerticalAlignment="Center" Width="604"/>
         <Border CornerRadius="15" Margin="493,344,186,20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="55" Width="113">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -47,7 +48,7 @@
             </Border.Background>
             <Button Content="下一步" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Click="Button_Click"/>
         </Border>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="296" Width="884" Margin="82,10,66,530" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="433" Width="884" Margin="72,371,76,92" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel x:Name="OdDetailCollection" />
 

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToGo"
         mc:Ignorable="d"
-        Title="Payment" Height="454.027" Width="811.073">
+        Title="Payment" Height="454.027" Width="811.073"
+        WindowStartupLocation="CenterScreen" >
     <Grid>
         <Rectangle Fill="#FF5785B4" Height="67" Margin="0,24,-11,0" RadiusY="12" RadiusX="12" Stroke="#FFFDF9F9" StrokeThickness="14" VerticalAlignment="Top"/>
         <Border CornerRadius="10"  HorizontalAlignment="Center" Margin="472,308,37,15" VerticalAlignment="Center" Width="88" Height="40" Grid.Row="1">

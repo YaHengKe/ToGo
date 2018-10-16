@@ -30,6 +30,17 @@ namespace ToGo
             this.ComBoxCountry.ItemsSource = q;
             AddOdDetail();
 
+            if (ComBoxCountry.Text != "") //判斷會員的居住國家
+            {
+                var q2 = dbContext.Countries.Where(x => x.CountryCHName == ComBoxCountry.Text);
+                foreach (var item in q2)
+                {
+                    _CountryID = item.CountryID;
+                }
+            }
+
+
+
         }
         public void AddOdDetail()
         {
