@@ -441,6 +441,7 @@
     <Resource Include="Image\房間3.JPG" />
     <Resource Include="Image\招牌.JPG" />
     <Resource Include="Image\門口.JPG" />
+    <Resource Include="Image\貳行LOGO.png" />
     <Content Include="ToGoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ToGoModel.edmx</DependentUpon>
