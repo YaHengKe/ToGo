@@ -27,7 +27,7 @@ namespace ToGo
         {
             InitializeComponent();
 
-            var q = dbContext.Hotels.Where(i => i.Owner.Email == "mag12242002@gmail.com").Select(i => i.HotelNameCN).ToList();
+            var q = dbContext.Hotels.Where(i => i.Owner.Email == MainWindow.OwnerLoginEmail).Select(i => i.HotelNameCN).ToList();
             for (int i = 0; i < q.Count; i++)
             {
                 this.cbhotelname.Items.Add(q[i]);
@@ -56,9 +56,9 @@ namespace ToGo
             // roomInformationViewSource.Source = [泛用資料來源]
             System.Windows.Data.CollectionViewSource orderViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("orderViewSource")));
 
-            hotelViewSource.Source = dbContext.Hotels.Where(x => x.Owner.Email == "zj4ru04eji6@yahoo.com.tw").ToList();
-            roomInformationViewSource.Source = dbContext.RoomInformations.Where(x => x.Hotel.Owner.Email == "zj4ru04eji6@yahoo.com.tw").ToList();
-            orderViewSource.Source = dbContext.Orders.Where(x => x.Hotel.Owner.Email == "zj4ru04eji6@yahoo.com.tw").ToList();
+            hotelViewSource.Source = dbContext.Hotels.Where(x => x.Owner.Email == MainWindow.OwnerLoginEmail).ToList();
+            roomInformationViewSource.Source = dbContext.RoomInformations.Where(x => x.Hotel.Owner.Email == MainWindow.OwnerLoginEmail).ToList();
+            orderViewSource.Source = dbContext.Orders.Where(x => x.Hotel.Owner.Email == MainWindow.OwnerLoginEmail).ToList();
             //cityENNameBox.ItemsSource = dbContext.Cities.Local;
 
         }

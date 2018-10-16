@@ -89,6 +89,8 @@ namespace ToGo
                                             MainWindow.OwnerLoginEmail = $"{reader2["Email"]}";
                                         }
                                         MessageBox.Show(MainWindow.OwnerLoginEmail + "登入成功");
+                                        Owner_Manager owner_Manager = new Owner_Manager();
+                                        owner_Manager.Show();
                                         reader2.Close();
                                         (this.Owner as MainWindow).Background = new SolidColorBrush(Colors.White);
                                         this.Close();
@@ -120,7 +122,7 @@ namespace ToGo
 
                                         logonFailUsers[thisLogonFailUser].failTimes += 1; // 錯誤次數加1
 
-                                        if (logonFailUsers[thisLogonFailUser].failTimes > 3) // 輸入錯誤超過3次時就鎖帳號
+                                        if (logonFailUsers[thisLogonFailUser].failTimes == 3) // 輸入錯誤超過3次時就鎖帳號
                                         {
                                             cmd.CommandText = "Update Owner set IsLocking = 'true' where Email = '" + logonFailUsers[thisLogonFailUser].userName + "'";
                                             SqlDataReader reader3 = cmd.ExecuteReader();
@@ -149,8 +151,6 @@ namespace ToGo
                         }
                     }
                 }
-                Owner_Manager owner_Manager = new Owner_Manager();
-                owner_Manager.Show();
             }
             catch (Exception ex)
             {
