@@ -1,0 +1,17 @@
+D:\專案\專題(1006)\Twogo\Twogo\bin\Debug\Twogo.exe.config
+D:\專案\專題(1006)\Twogo\Twogo\bin\Debug\Twogo.exe
+D:\專案\專題(1006)\Twogo\Twogo\bin\Debug\Twogo.pdb
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo.csprojAssemblyReference.cache
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\RoomMenu.g.cs
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\RoomPage.g.cs
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\App.g.cs
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo_MarkupCompile.cache
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo_MarkupCompile.lref
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\RoomMenu.baml
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\RoomPage.baml
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo.g.resources
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo.Properties.Resources.resources
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo.csproj.GenerateResource.cache
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo.csproj.CoreCompileInputs.cache
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo.exe
+D:\專案\專題(1006)\Twogo\Twogo\obj\Debug\Twogo.pdb

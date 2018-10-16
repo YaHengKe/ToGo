@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f48aa8c507c3413c94d4c2aacb60d623" Name="Diagram1">
+        <EntityTypeShape EntityType="ToGoModel.Administrator" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.City" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.Comment" Width="1.5" PointX="12.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.Country" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.Discount" Width="1.5" PointX="7.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.DiscountRoom" Width="1.5" PointX="9.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.Hotel" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.HotelImage" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.HotelServiceAndFacility" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.Member" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.Order" Width="1.5" PointX="10.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.OrderDetail" Width="1.5" PointX="12.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.OrderState" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.Owner" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.RoomImage2" Width="1.5" PointX="9.75" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.RoomInformation" Width="1.5" PointX="7.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.RoomServiceAndFacility" Width="1.5" PointX="12.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.ServiceAndFacility" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.TripType" Width="1.5" PointX="10.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToGoModel.RoomImage" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="ToGoModel.FK_City_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Hotel_City" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Comment_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Comment_TripType" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Hotel_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Member_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Order_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_DiscountRoom_Discount" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_DiscountRoom_RoomInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Hotel_Owner" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_HotelImage_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_HotelServiceAndFacility_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Order_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_RoomInformation_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_HotelServiceAndFacility_ServiceAndFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Order_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_Order_OrderState" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_OrderDetail_RoomInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_RoomImage2_RoomInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_RoomServiceAndFacility_RoomInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="ToGoModel.FK_RoomServiceAndFacility_ServiceAndFacility" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

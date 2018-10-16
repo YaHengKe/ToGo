@@ -1,0 +1,52 @@
+﻿<Window x:Class="ToGo.Hotel_Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToGo"
+        mc:Ignorable="d"
+        Title="Hotel_Search" Height="3000" Width="1920">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="151*"/>
+            <RowDefinition Height="2818*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Margin="-1,0,-7,2" Grid.RowSpan="2">
+            <Grid>
+                <StackPanel Background="Gray" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="1910" Margin="-7,0,0,0"/>
+                <Button  Content="會員登入" Foreground="Snow" Background="Gray" BorderThickness="0"  HorizontalAlignment="Left" Margin="1641,10,0,0" VerticalAlignment="Top" Width="114" Height="55" FontSize="20" Click="Button_Click"/>
+                <Button  Content="新朋友加入" Foreground="Snow" BorderThickness="0" Background="Gray" HorizontalAlignment="Left" Margin="1777,10,0,0" VerticalAlignment="Top" Width="114" Height="55" FontSize="20" />
+                <Button  Content="旅人好評" Foreground="Snow" BorderThickness="0" Background="Gray"  HorizontalAlignment="Left" Margin="261,11,0,0" VerticalAlignment="Top" Width="80" Height="56" FontSize="16" RenderTransformOrigin="-0.338,0.502"/>
+                <Button  Content="熱門景點" Foreground="Snow" BorderThickness="0" Background="Gray"  HorizontalAlignment="Left" Margin="158,11,0,0" VerticalAlignment="Top" Width="80" Height="56" FontSize="16"/>
+                <Button  Content="首頁" Foreground="Snow" BorderThickness="0" Background="Gray"  HorizontalAlignment="Left" Margin="50,11,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16" Click="Button_Click_4"/>
+                <StackPanel Background="#FFAEADAD" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="1910" Margin="1,75,-8,0"/>
+
+                <TextBox Name="Search_CityTextBox" HorizontalAlignment="Left" Height="44" Margin="131,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" FontSize="36"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="44" Margin="549,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="232"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="44" Margin="781,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="232"/>
+                <DatePicker HorizontalAlignment="Left" Margin="831,93,0,0" VerticalAlignment="Top" Width="140" Height="24"/>
+                <DatePicker HorizontalAlignment="Left" Margin="595,93,0,0" VerticalAlignment="Top" Width="140" Height="24"/>
+                <TextBox HorizontalAlignment="Left" Height="44" Margin="1074,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="36"/>
+                <Label Content="間客房" Margin="1247,85,574,0" VerticalAlignment="Top" FontSize="24" Height="40" Foreground="White"/>
+                <TextBox HorizontalAlignment="Left" Height="44" Margin="1379,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" FontSize="36"/>
+                <Label Content="位住宿" HorizontalAlignment="Left" Margin="1552,85,0,0" VerticalAlignment="Top" FontSize="24" Height="40" Width="82" Foreground="White"/>
+                <Button Content="搜出好房" Background="#FF75B8EE" HorizontalAlignment="Left" Margin="1703,85,0,0" VerticalAlignment="Top" Width="85" Height="44" FontWeight="Bold" Click="Button_Click_3"/>
+                <Border HorizontalAlignment="Left" Height="90"  Margin="401,293,0,0" VerticalAlignment="Top" Width="998" Background="#FFEAEAEA" CornerRadius="30" >
+                    <Rectangle />
+                </Border>
+                <Label Content="已為您搜出" Foreground="#FF2A72F1" HorizontalAlignment="Left" Margin="532,304,0,0" VerticalAlignment="Top" FontSize="24" Height="51" Width="203" FontWeight="Bold"/>
+                <Label Name="Label_HotelCount" Content="123" Foreground="#FF2A72F1" HorizontalAlignment="Left" Margin="693,304,0,0" VerticalAlignment="Top" FontSize="24" Height="51" Width="73" FontWeight="Bold"/>
+                <Label Content="筆優質飯店！" Foreground="#FF2A72F1" HorizontalAlignment="Left" Margin="774,304,0,0" VerticalAlignment="Top" FontSize="24" Height="51" Width="215" FontWeight="Bold"/>
+                <Image HorizontalAlignment="Left"  Height="76" Margin="428,308,0,0" VerticalAlignment="Top" Width="66" Source="Image/bell.png"/>
+                <Label Content="想用最優惠的價錢下訂，就趁現在！" HorizontalAlignment="Left" Margin="532,337,0,0" VerticalAlignment="Top" Foreground="#FF272424" FontWeight="Bold" FontSize="24" Height="36" Width="507"/>
+                <StackPanel Background="Gray"  HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="1920" Margin="0,2903,-17,0"/>
+                <Button  Content="關於我們" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="33,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+                <Button  Content="聯絡我們" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="156,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+                <Button  Content="隱私權政策" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="270,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+                <Button  Content="職缺消息" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="401,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+                <Button  Content="我是房東" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="524,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+                <StackPanel x:Name="StackPanel_ShowHotel" HorizontalAlignment="Left" Height="2400" Margin="401,405,0,0" VerticalAlignment="Top" Width="1000"/>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

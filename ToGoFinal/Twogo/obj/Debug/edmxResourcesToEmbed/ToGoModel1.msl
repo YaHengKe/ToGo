@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ToGoModelStoreContainer" CdmEntityContainer="ToGoEntities4">
+    <EntitySetMapping Name="RoomInformation">
+      <EntityTypeMapping TypeName="ToGoModel.RoomInformation">
+        <MappingFragment StoreEntitySet="RoomInformation">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="CanAddBed" ColumnName="CanAddBed" />
+          <ScalarProperty Name="OfferBreakfast" ColumnName="OfferBreakfast" />
+          <ScalarProperty Name="PermitSmoking" ColumnName="PermitSmoking" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomServiceAndFacility">
+      <EntityTypeMapping TypeName="ToGoModel.RoomServiceAndFacility">
+        <MappingFragment StoreEntitySet="RoomServiceAndFacility">
+          <ScalarProperty Name="ServiceFacilityID" ColumnName="ServiceFacilityID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceAndFacility">
+      <EntityTypeMapping TypeName="ToGoModel.ServiceAndFacility">
+        <MappingFragment StoreEntitySet="ServiceAndFacility">
+          <ScalarProperty Name="ServiceFacilityName" ColumnName="ServiceFacilityName" />
+          <ScalarProperty Name="ServiceFacilityID" ColumnName="ServiceFacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotel">
+      <EntityTypeMapping TypeName="ToGoModel.Hotel">
+        <MappingFragment StoreEntitySet="Hotel">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="TaxIDNumber" ColumnName="TaxIDNumber" />
+          <ScalarProperty Name="StarRated" ColumnName="StarRated" />
+          <ScalarProperty Name="AddressEN" ColumnName="AddressEN" />
+          <ScalarProperty Name="AddressCH" ColumnName="AddressCH" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="HotelNameCN" ColumnName="HotelNameCN" />
+          <ScalarProperty Name="HotelNameEN" ColumnName="HotelNameEN" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

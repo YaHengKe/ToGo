@@ -1,0 +1,58 @@
+﻿<Window x:Class="ToGo.RoomMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToGo"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="RoomMenu" Height="3000" Width="1920" >
+    <ScrollViewer>
+
+        <Grid >
+            <ScrollViewer Height="750" Width="800" Margin="516,1560,579,659">
+                <StackPanel Orientation="Vertical" x:Name="StackOfRoom" Background="LightGray"/>
+
+            </ScrollViewer>
+            <Label x:Name="titlename" FontSize="48" Content="
+目黑萊昂飯店 (Hotel Leon Meguro)" HorizontalAlignment="Left" Margin="10,1064,-25,0" VerticalAlignment="Top" Width="1910" Height="106" FontFamily="Book Antiqua"/>
+            <Image HorizontalAlignment="Left" Height="543" Margin="10,90,0,0" VerticalAlignment="Top" Width="931"  Stretch="Fill" Source="Image/門口.JPG"/>
+            <Image HorizontalAlignment="Left" Height="380" Margin="10,667,0,0" VerticalAlignment="Top" Width="489"  Stretch="Fill" Source="Image/房間1.JPG"/>
+            <Image HorizontalAlignment="Left" Height="380" Margin="516,667,0,0" VerticalAlignment="Top" Width="607"  Stretch="Fill" Source="Image/房間2.JPG"/>
+            <Image HorizontalAlignment="Left" Height="543" Margin="963,90,0,0" VerticalAlignment="Top" Width="926"  Stretch="Fill" Source="Image/房間3.JPG"/>
+            <Image HorizontalAlignment="Left" Height="380" Margin="1141,667,0,0" VerticalAlignment="Top" Width="748"  Stretch="Fill" Source="Image/招牌.JPG"/>
+            <Label Name="HotelAddress" Content="1-3-14, Meguro, Meguro-ku, 目黑, 東京, 日本, 153-0063 " Foreground="Blue" HorizontalAlignment="Left" Margin="28,1131,0,0" VerticalAlignment="Top" FontSize="24" Height="81" Width="1857"/>
+            <StackPanel Background="Gray" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="1910" Margin="-7,0,-8,0"/>
+            <Button  Content="會員登入" Foreground="Snow" Background="Gray" BorderThickness="0"  HorizontalAlignment="Left" Margin="1641,10,0,0" VerticalAlignment="Top" Width="114" Height="55" FontSize="20" />
+            <Button  Content="新朋友加入" Foreground="Snow" BorderThickness="0" Background="Gray" HorizontalAlignment="Left" Margin="1777,10,0,0" VerticalAlignment="Top" Width="114" Height="55" FontSize="20" />
+            <Button  Content="旅人好評" Foreground="Snow" BorderThickness="0" Background="Gray"  HorizontalAlignment="Left" Margin="261,11,0,0" VerticalAlignment="Top" Width="80" Height="56" FontSize="16" RenderTransformOrigin="-0.338,0.502"/>
+            <Button  Content="熱門景點" Foreground="Snow" BorderThickness="0" Background="Gray"  HorizontalAlignment="Left" Margin="158,11,0,0" VerticalAlignment="Top" Width="80" Height="56" FontSize="16"/>
+            <Button  Content="首頁" Foreground="Snow" BorderThickness="0" Background="Gray"  HorizontalAlignment="Left" Margin="50,11,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16" />
+            <StackPanel Background="Gray"  HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="1920" Margin="0,2903,-25,0"/>
+            <Button  Content="關於我們" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="33,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+            <Button  Content="聯絡我們" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="156,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+            <Button  Content="隱私權政策" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="270,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+            <Button  Content="職缺消息" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="401,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+            <Button  Content="我是房東" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="524,2911,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
+            <Label Content="選擇客房" HorizontalAlignment="Left" Margin="33,1256,0,0" VerticalAlignment="Top" FontSize="24"/>
+            <Label Content="我們為您搜出了" HorizontalAlignment="Left" Margin="33,1319,0,0" VerticalAlignment="Top" FontSize="22"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="200,1319,0,0" VerticalAlignment="Top" FontSize="22"/>
+            <Label Content="優質客房！" HorizontalAlignment="Left" Margin="202,1319,0,0" VerticalAlignment="Top" FontSize="22"/>
+            <local:HotelSandF x:Name="HSFusercontrol" HorizontalAlignment="Left" Height="308" Margin="516,2364,0,0" VerticalAlignment="Top" Width="801"/>
+            <Expander FontSize="20"  Header="服務與設施" HorizontalAlignment="Left" Height="244" Margin="200,2428,0,0" VerticalAlignment="Top" Width="251" IsExpanded="True">
+                <StackPanel  >
+                    <RadioButton Name="rb1" Content="可使用語言"  Checked="RadioButton_Checked"/>
+                    <RadioButton Name="rb2" Content="網路服務"  Checked="RadioButton_Checked"/>
+                    <RadioButton Name="rb3" Content="休閒娛樂設施"  Checked="RadioButton_Checked"/>
+                    <RadioButton Name="rb4" Content="餐飲服務"  Checked="RadioButton_Checked"/>
+                    <RadioButton Name="rb5" Content="服務與便利設施"  Checked="RadioButton_Checked"/>
+                    <RadioButton Name="rb6" Content="接待服務"  Checked="RadioButton_Checked"/>
+                    <RadioButton Name="rb7" Content="交通服務/設施"  Checked="RadioButton_Checked"/>
+                    <RadioButton Name="rb8" Content="兒童專屬"  Checked="RadioButton_Checked"/>
+
+                </StackPanel>
+            </Expander>
+        </Grid>
+
+    </ScrollViewer>
+</Window>

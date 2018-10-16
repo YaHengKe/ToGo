@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToGoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RoomInformation">
+    <Key>
+      <PropertyRef Name="RoomID" />
+    </Key>
+    <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HotelID" Type="Int32" />
+    <Property Name="RoomType" Type="Int32" />
+    <Property Name="RoomName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="UnitPrice" Type="Int32" />
+    <Property Name="CanAddBed" Type="Boolean" />
+    <Property Name="OfferBreakfast" Type="Boolean" />
+    <Property Name="PermitSmoking" Type="Boolean" />
+    <Property Name="RegisterDate" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RoomServiceAndFacility" Relationship="ToGoModel.FK_RoomServiceAndFacility_RoomInformation" FromRole="RoomInformation" ToRole="RoomServiceAndFacility" />
+    <NavigationProperty Name="Hotel" Relationship="ToGoModel.FK_RoomInformation_Hotel" FromRole="RoomInformation" ToRole="Hotel" />
+  </EntityType>
+  <EntityContainer Name="ToGoEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RoomInformation" EntityType="Self.RoomInformation" />
+    <EntitySet Name="RoomServiceAndFacility" EntityType="ToGoModel.RoomServiceAndFacility" />
+    <AssociationSet Name="FK_RoomServiceAndFacility_RoomInformation" Association="ToGoModel.FK_RoomServiceAndFacility_RoomInformation">
+      <End Role="RoomInformation" EntitySet="RoomInformation" />
+      <End Role="RoomServiceAndFacility" EntitySet="RoomServiceAndFacility" />
+    </AssociationSet>
+    <EntitySet Name="ServiceAndFacility" EntityType="ToGoModel.ServiceAndFacility" />
+    <EntitySet Name="Hotel" EntityType="ToGoModel.Hotel" />
+    <AssociationSet Name="FK_RoomInformation_Hotel" Association="ToGoModel.FK_RoomInformation_Hotel">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="RoomInformation" EntitySet="RoomInformation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RoomServiceAndFacility">
+    <Key>
+      <PropertyRef Name="RoomID" />
+      <PropertyRef Name="ServiceFacilityID" />
+    </Key>
+    <Property Name="RoomID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceFacilityID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RoomInformation" Relationship="ToGoModel.FK_RoomServiceAndFacility_RoomInformation" FromRole="RoomServiceAndFacility" ToRole="RoomInformation" />
+  </EntityType>
+  <Association Name="FK_RoomServiceAndFacility_RoomInformation">
+    <End Type="ToGoModel.RoomInformation" Role="RoomInformation" Multiplicity="1" />
+    <End Type="ToGoModel.RoomServiceAndFacility" Role="RoomServiceAndFacility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomInformation">
+        <PropertyRef Name="RoomID" />
+      </Principal>
+      <Dependent Role="RoomServiceAndFacility">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ServiceAndFacility">
+    <Key>
+      <PropertyRef Name="ServiceFacilityID" />
+    </Key>
+    <Property Name="ServiceFacilityID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceFacilityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="HotelID" />
+    </Key>
+    <Property Name="HotelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerID" Type="Int32" />
+    <Property Name="HotelNameEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HotelNameCN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="CityID" Type="Int32" />
+    <Property Name="AddressCH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AddressEN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="StarRated" Type="Int32" />
+    <Property Name="TaxIDNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RegisterDate" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RoomInformation" Relationship="ToGoModel.FK_RoomInformation_Hotel" FromRole="Hotel" ToRole="RoomInformation" />
+  </EntityType>
+  <Association Name="FK_RoomInformation_Hotel">
+    <End Type="ToGoModel.Hotel" Role="Hotel" Multiplicity="0..1" />
+    <End Type="ToGoModel.RoomInformation" Role="RoomInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="HotelID" />
+      </Principal>
+      <Dependent Role="RoomInformation">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

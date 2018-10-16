@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="ToGoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="CountryID" Nullable="false" Type="int" />
+    <Property Name="CityCHName" Nullable="false" MaxLength="20" Type="nvarchar" />
+    <Property Name="CityENName" Nullable="false" MaxLength="30" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="OrderID" Nullable="false" Type="int" />
+    <Property Name="OrderCode" Nullable="false" Type="int" />
+    <Property Name="TripTypeNum" Nullable="false" Type="int" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="CPStars" Nullable="false" Precision="4" Scale="3" Type="decimal" />
+    <Property Name="LocationPoint" Nullable="false" Precision="4" Scale="3" Type="decimal" />
+    <Property Name="CleanPoint" Nullable="false" Precision="4" Scale="3" Type="decimal" />
+    <Property Name="ServicePoint" Nullable="false" Precision="4" Scale="3" Type="decimal" />
+    <Property Name="FacilityPoint" Nullable="false" Precision="4" Scale="3" Type="decimal" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="CountryCHName" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="CountryENName" Nullable="false" MaxLength="40" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="HotelID" />
+    </Key>
+    <Property Name="HotelID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="OwnerID" Type="int" />
+    <Property Name="HotelNameEN" MaxLength="50" Type="varchar" />
+    <Property Name="HotelNameCN" MaxLength="50" Type="nvarchar" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="AddressCH" MaxLength="200" Type="nvarchar" />
+    <Property Name="AddressEN" MaxLength="200" Type="varchar" />
+    <Property Name="StarRated" Type="int" />
+    <Property Name="TaxIDNumber" MaxLength="15" Type="varchar" />
+    <Property Name="RegisterDate" Type="date" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="HotelID" Type="int" />
+    <Property Name="HotelNameCN" Nullable="false" MaxLength="30" Type="nvarchar" />
+    <Property Name="RoomNameCN" Nullable="false" MaxLength="20" Type="nvarchar" />
+    <Property Name="OrderDate" Nullable="false" Type="date" />
+    <Property Name="FirstName" Nullable="false" MaxLength="20" Type="varchar" />
+    <Property Name="LastName" Nullable="false" MaxLength="10" Type="varchar" />
+    <Property Name="PhoneNumber" Nullable="false" MaxLength="10" Type="varchar" />
+    <Property Name="Email" Nullable="false" MaxLength="40" Type="varchar" />
+    <Property Name="CountryID" Nullable="false" Type="int" />
+    <Property Name="CardNumber" Nullable="false" MaxLength="20" Type="varchar" />
+    <Property Name="CardHolderName" Nullable="false" MaxLength="30" Type="nvarchar" />
+    <Property Name="StartDate" Nullable="false" Type="date" />
+    <Property Name="EndDate" Nullable="false" Type="date" />
+    <Property Name="OrderCode" Type="int" />
+    <Property Name="TotalPrice" Nullable="false" Type="int" />
+    <Property Name="Request" MaxLength="50" Type="nvarchar" />
+    <Property Name="MemberNumber" Type="int" />
+    <Property Name="IsPay" Nullable="false" Type="bit" />
+    <Property Name="OrderState" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="OrderID" Nullable="false" Type="int" />
+    <Property Name="RoomID" Nullable="false" Type="int" />
+    <Property Name="UnitPrice" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="RoomImage2">
+    <Key>
+      <PropertyRef Name="iD" />
+    </Key>
+    <Property Name="iD" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="RoomID" Nullable="false" Type="int" />
+    <Property Name="HotelID" Nullable="false" Type="int" />
+    <Property Name="RoomNameCN" Nullable="false" MaxLength="70" Type="nvarchar" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Image" Nullable="false" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="RoomInformation">
+    <Key>
+      <PropertyRef Name="RoomID" />
+    </Key>
+    <Property Name="RoomID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="HotelID" Type="int" />
+    <Property Name="RoomType" Type="int" />
+    <Property Name="RoomNameCN" MaxLength="70" Type="nvarchar" />
+    <Property Name="RoomNameEN" MaxLength="70" Type="nvarchar" />
+    <Property Name="UnitPrice" Type="int" />
+    <Property Name="CanAddBed" Type="bit" />
+    <Property Name="OfferBreakfast" Type="bit" />
+    <Property Name="PermitSmoking" Type="bit" />
+    <Property Name="RegisterDate" Type="date" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="RoomServiceAndFacility">
+    <Key>
+      <PropertyRef Name="RoomAndSFID" />
+    </Key>
+    <Property Name="RoomAndSFID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="RoomID" Nullable="false" Type="int" />
+    <Property Name="HotelID" Type="int" />
+    <Property Name="RoomNameCN" MaxLength="70" Type="nvarchar" />
+    <Property Name="ServiceFacilityID" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="ServiceAndFacility">
+    <Key>
+      <PropertyRef Name="ServiceFacilityID" />
+    </Key>
+    <Property Name="ServiceFacilityID" Nullable="false" Type="int" />
+    <Property Name="ServiceFacilityCHName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="ServiceFacilityENName" Nullable="false" MaxLength="50" Type="nvarchar" />
+  </EntityType>
+  <Association Name="FK_City_Country">
+    <End Type="Self.Country" Multiplicity="1" Role="Country" />
+    <End Type="Self.City" Multiplicity="*" Role="City" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Order">
+    <End Type="Self.Order" Multiplicity="1" Role="Order" />
+    <End Type="Self.Comment" Multiplicity="*" Role="Comment" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hotel_City">
+    <End Type="Self.City" Multiplicity="0..1" Role="City" />
+    <End Type="Self.Hotel" Multiplicity="*" Role="Hotel" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Hotel">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hotel_Country">
+    <End Type="Self.Country" Multiplicity="0..1" Role="Country" />
+    <End Type="Self.Hotel" Multiplicity="*" Role="Hotel" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Hotel">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Country">
+    <End Type="Self.Country" Multiplicity="1" Role="Country" />
+    <End Type="Self.Order" Multiplicity="*" Role="Order" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Hotel">
+    <End Type="Self.Hotel" Multiplicity="0..1" Role="Hotel" />
+    <End Type="Self.Order" Multiplicity="*" Role="Order" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="HotelID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Order">
+    <End Type="Self.Order" Multiplicity="1" Role="Order" />
+    <End Type="Self.OrderDetail" Multiplicity="*" Role="OrderDetail" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_RoomInformation">
+    <End Type="Self.RoomInformation" Multiplicity="1" Role="RoomInformation" />
+    <End Type="Self.OrderDetail" Multiplicity="*" Role="OrderDetail" />
+    <ReferentialConstraint>
+      <Principal Role="RoomInformation">
+        <PropertyRef Name="RoomID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomImage2_RoomInformation">
+    <End Type="Self.RoomInformation" Multiplicity="1" Role="RoomInformation" />
+    <End Type="Self.RoomImage2" Multiplicity="*" Role="RoomImage2" />
+    <ReferentialConstraint>
+      <Principal Role="RoomInformation">
+        <PropertyRef Name="RoomID" />
+      </Principal>
+      <Dependent Role="RoomImage2">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomInformation_Hotel">
+    <End Type="Self.Hotel" Multiplicity="0..1" Role="Hotel" />
+    <End Type="Self.RoomInformation" Multiplicity="*" Role="RoomInformation" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="HotelID" />
+      </Principal>
+      <Dependent Role="RoomInformation">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomServiceAndFacility_RoomInformation">
+    <End Type="Self.RoomInformation" Multiplicity="1" Role="RoomInformation" />
+    <End Type="Self.RoomServiceAndFacility" Multiplicity="*" Role="RoomServiceAndFacility" />
+    <ReferentialConstraint>
+      <Principal Role="RoomInformation">
+        <PropertyRef Name="RoomID" />
+      </Principal>
+      <Dependent Role="RoomServiceAndFacility">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomServiceAndFacility_ServiceAndFacility">
+    <End Type="Self.ServiceAndFacility" Multiplicity="1" Role="ServiceAndFacility" />
+    <End Type="Self.RoomServiceAndFacility" Multiplicity="*" Role="RoomServiceAndFacility" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceAndFacility">
+        <PropertyRef Name="ServiceFacilityID" />
+      </Principal>
+      <Dependent Role="RoomServiceAndFacility">
+        <PropertyRef Name="ServiceFacilityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ToGoModelStoreContainer">
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomImage2" EntityType="Self.RoomImage2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomInformation" EntityType="Self.RoomInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomServiceAndFacility" EntityType="Self.RoomServiceAndFacility" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceAndFacility" EntityType="Self.ServiceAndFacility" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
+      <End EntitySet="Country" Role="Country" />
+      <End EntitySet="City" Role="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Order" Association="Self.FK_Comment_Order">
+      <End EntitySet="Order" Role="Order" />
+      <End EntitySet="Comment" Role="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hotel_City" Association="Self.FK_Hotel_City">
+      <End EntitySet="City" Role="City" />
+      <End EntitySet="Hotel" Role="Hotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hotel_Country" Association="Self.FK_Hotel_Country">
+      <End EntitySet="Country" Role="Country" />
+      <End EntitySet="Hotel" Role="Hotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Country" Association="Self.FK_Order_Country">
+      <End EntitySet="Country" Role="Country" />
+      <End EntitySet="Order" Role="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Hotel" Association="Self.FK_Order_Hotel">
+      <End EntitySet="Hotel" Role="Hotel" />
+      <End EntitySet="Order" Role="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Order" Association="Self.FK_OrderDetail_Order">
+      <End EntitySet="Order" Role="Order" />
+      <End EntitySet="OrderDetail" Role="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_RoomInformation" Association="Self.FK_OrderDetail_RoomInformation">
+      <End EntitySet="RoomInformation" Role="RoomInformation" />
+      <End EntitySet="OrderDetail" Role="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomImage2_RoomInformation" Association="Self.FK_RoomImage2_RoomInformation">
+      <End EntitySet="RoomInformation" Role="RoomInformation" />
+      <End EntitySet="RoomImage2" Role="RoomImage2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomInformation_Hotel" Association="Self.FK_RoomInformation_Hotel">
+      <End EntitySet="Hotel" Role="Hotel" />
+      <End EntitySet="RoomInformation" Role="RoomInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomServiceAndFacility_RoomInformation" Association="Self.FK_RoomServiceAndFacility_RoomInformation">
+      <End EntitySet="RoomInformation" Role="RoomInformation" />
+      <End EntitySet="RoomServiceAndFacility" Role="RoomServiceAndFacility" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomServiceAndFacility_ServiceAndFacility" Association="Self.FK_RoomServiceAndFacility_ServiceAndFacility">
+      <End EntitySet="ServiceAndFacility" Role="ServiceAndFacility" />
+      <End EntitySet="RoomServiceAndFacility" Role="RoomServiceAndFacility" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

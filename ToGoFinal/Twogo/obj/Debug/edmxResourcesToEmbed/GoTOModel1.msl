@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ToGoModelStoreContainer" CdmEntityContainer="ToGoEntities5">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="ToGoModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityENName" ColumnName="CityENName" />
+          <ScalarProperty Name="CityCHName" ColumnName="CityCHName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="ToGoModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="FacilityPoint" ColumnName="FacilityPoint" />
+          <ScalarProperty Name="ServicePoint" ColumnName="ServicePoint" />
+          <ScalarProperty Name="CleanPoint" ColumnName="CleanPoint" />
+          <ScalarProperty Name="LocationPoint" ColumnName="LocationPoint" />
+          <ScalarProperty Name="CPStars" ColumnName="CPStars" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="TripTypeNum" ColumnName="TripTypeNum" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ToGoModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryENName" ColumnName="CountryENName" />
+          <ScalarProperty Name="CountryCHName" ColumnName="CountryCHName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotels">
+      <EntityTypeMapping TypeName="ToGoModel.Hotel">
+        <MappingFragment StoreEntitySet="Hotel">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="TaxIDNumber" ColumnName="TaxIDNumber" />
+          <ScalarProperty Name="StarRated" ColumnName="StarRated" />
+          <ScalarProperty Name="AddressEN" ColumnName="AddressEN" />
+          <ScalarProperty Name="AddressCH" ColumnName="AddressCH" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="HotelNameCN" ColumnName="HotelNameCN" />
+          <ScalarProperty Name="HotelNameEN" ColumnName="HotelNameEN" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceAndFacilities">
+      <EntityTypeMapping TypeName="ToGoModel.ServiceAndFacility">
+        <MappingFragment StoreEntitySet="ServiceAndFacility">
+          <ScalarProperty Name="ServiceFacilityENName" ColumnName="ServiceFacilityENName" />
+          <ScalarProperty Name="ServiceFacilityCHName" ColumnName="ServiceFacilityCHName" />
+          <ScalarProperty Name="ServiceFacilityID" ColumnName="ServiceFacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomServiceAndFacilities">
+      <EntityTypeMapping TypeName="ToGoModel.RoomServiceAndFacility">
+        <MappingFragment StoreEntitySet="RoomServiceAndFacility">
+          <ScalarProperty Name="ServiceFacilityID" ColumnName="ServiceFacilityID" />
+          <ScalarProperty Name="RoomNameCN" ColumnName="RoomNameCN" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="RoomAndSFID" ColumnName="RoomAndSFID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomImage2">
+      <EntityTypeMapping TypeName="ToGoModel.RoomImage2">
+        <MappingFragment StoreEntitySet="RoomImage2">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomNameCN" ColumnName="RoomNameCN" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="iD" ColumnName="iD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ToGoModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="OrderState" ColumnName="OrderState" />
+          <ScalarProperty Name="IsPay" ColumnName="IsPay" />
+          <ScalarProperty Name="MemberNumber" ColumnName="MemberNumber" />
+          <ScalarProperty Name="Request" ColumnName="Request" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="RoomNameCN" ColumnName="RoomNameCN" />
+          <ScalarProperty Name="HotelNameCN" ColumnName="HotelNameCN" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="ToGoModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomInformations">
+      <EntityTypeMapping TypeName="ToGoModel.RoomInformation">
+        <MappingFragment StoreEntitySet="RoomInformation">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="PermitSmoking" ColumnName="PermitSmoking" />
+          <ScalarProperty Name="OfferBreakfast" ColumnName="OfferBreakfast" />
+          <ScalarProperty Name="CanAddBed" ColumnName="CanAddBed" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="RoomNameEN" ColumnName="RoomNameEN" />
+          <ScalarProperty Name="RoomNameCN" ColumnName="RoomNameCN" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

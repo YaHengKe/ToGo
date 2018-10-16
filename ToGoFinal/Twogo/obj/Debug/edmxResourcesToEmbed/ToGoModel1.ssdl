@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToGoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="HotelID" />
+    </Key>
+    <Property Name="HotelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OwnerID" Type="int" />
+    <Property Name="HotelNameEN" Type="varchar" MaxLength="50" />
+    <Property Name="HotelNameCN" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="AddressCH" Type="nvarchar" MaxLength="200" />
+    <Property Name="AddressEN" Type="varchar" MaxLength="200" />
+    <Property Name="StarRated" Type="int" />
+    <Property Name="TaxIDNumber" Type="varchar" MaxLength="15" />
+    <Property Name="RegisterDate" Type="date" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="RoomInformation">
+    <Key>
+      <PropertyRef Name="RoomID" />
+    </Key>
+    <Property Name="RoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HotelID" Type="int" />
+    <Property Name="RoomType" Type="int" />
+    <Property Name="RoomName" Type="nvarchar" MaxLength="70" />
+    <Property Name="UnitPrice" Type="int" />
+    <Property Name="CanAddBed" Type="bit" />
+    <Property Name="OfferBreakfast" Type="bit" />
+    <Property Name="PermitSmoking" Type="bit" />
+    <Property Name="RegisterDate" Type="date" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ToGo.dbo.RoomServiceAndFacility' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="RoomServiceAndFacility">
+    <Key>
+      <PropertyRef Name="RoomID" />
+      <PropertyRef Name="ServiceFacilityID" />
+    </Key>
+    <Property Name="RoomID" Type="int" Nullable="false" />
+    <Property Name="ServiceFacilityID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceAndFacility">
+    <Key>
+      <PropertyRef Name="ServiceFacilityID" />
+    </Key>
+    <Property Name="ServiceFacilityID" Type="int" Nullable="false" />
+    <Property Name="ServiceFacilityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_RoomInformation_Hotel">
+    <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+    <End Role="RoomInformation" Type="Self.RoomInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="HotelID" />
+      </Principal>
+      <Dependent Role="RoomInformation">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomServiceAndFacility_RoomInformation">
+    <End Role="RoomInformation" Type="Self.RoomInformation" Multiplicity="1" />
+    <End Role="RoomServiceAndFacility" Type="Self.RoomServiceAndFacility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomInformation">
+        <PropertyRef Name="RoomID" />
+      </Principal>
+      <Dependent Role="RoomServiceAndFacility">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomServiceAndFacility_ServiceAndFacility">
+    <End Role="ServiceAndFacility" Type="Self.ServiceAndFacility" Multiplicity="1" />
+    <End Role="RoomServiceAndFacility" Type="Self.RoomServiceAndFacility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceAndFacility">
+        <PropertyRef Name="ServiceFacilityID" />
+      </Principal>
+      <Dependent Role="RoomServiceAndFacility">
+        <PropertyRef Name="ServiceFacilityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ToGoModelStoreContainer">
+    <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomInformation" EntityType="Self.RoomInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceAndFacility" EntityType="Self.ServiceAndFacility" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomServiceAndFacility" EntityType="Self.RoomServiceAndFacility" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RoomServiceAndFacility].[RoomID] AS [RoomID], 
+    [RoomServiceAndFacility].[ServiceFacilityID] AS [ServiceFacilityID]
+    FROM [dbo].[RoomServiceAndFacility] AS [RoomServiceAndFacility]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_RoomInformation_Hotel" Association="Self.FK_RoomInformation_Hotel">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="RoomInformation" EntitySet="RoomInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomServiceAndFacility_RoomInformation" Association="Self.FK_RoomServiceAndFacility_RoomInformation">
+      <End Role="RoomInformation" EntitySet="RoomInformation" />
+      <End Role="RoomServiceAndFacility" EntitySet="RoomServiceAndFacility" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomServiceAndFacility_ServiceAndFacility" Association="Self.FK_RoomServiceAndFacility_ServiceAndFacility">
+      <End Role="ServiceAndFacility" EntitySet="ServiceAndFacility" />
+      <End Role="RoomServiceAndFacility" EntitySet="RoomServiceAndFacility" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
