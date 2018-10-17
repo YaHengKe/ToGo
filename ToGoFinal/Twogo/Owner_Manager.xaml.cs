@@ -26,7 +26,7 @@ namespace ToGo
         public Owner_Manager()
         {
             InitializeComponent();
-
+            showtime.Navigate(new Uri("https://app.powerbi.com/view?r=eyJrIjoiYzU4NzRkNDItYWM3My00NTk4LWE3ZTQtOGJhYjg5ZmY2YjBkIiwidCI6ImU0NjEwZmNlLTE3ZWYtNGFkYS05ZDkyLWRkNzNlM2NlOWM4NiIsImMiOjZ9"));
             var q = dbContext.Hotels.Where(i => i.Owner.Email == MainWindow.OwnerLoginEmail).Select(i => i.HotelNameCN).ToList();
             for (int i = 0; i < q.Count; i++)
             {
@@ -176,7 +176,7 @@ namespace ToGo
 
             var roomlist = db.Orders.Where(a => a.HotelNameCN == name && a.RoomNameCN == roomname).Select(a => new { a.OrderID, a.OrderDate, a.RoomNameCN, a.FirstName, a.LastName, a.StartDate, a.EndDate }).ToList();
 
-            this.DataGrid1.DataContext = roomlist;
+            this.DataGrid1.ItemsSource = roomlist;
 
             for (int i = 0; i < roomlist.Count; i++)
             {
@@ -214,8 +214,8 @@ namespace ToGo
                 var item = DataGrid1.SelectedItem;
                 if (item != null)
                 {
-                    StartDate = (DataGrid1.SelectedCells[12].Column.GetCellContent(item) as TextBlock).Text;
-                    EndDate = (DataGrid1.SelectedCells[13].Column.GetCellContent(item) as TextBlock).Text;
+                    StartDate = (DataGrid1.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
+                    EndDate = (DataGrid1.SelectedCells[6].Column.GetCellContent(item) as TextBlock).Text;
                 }
                 else
                 {

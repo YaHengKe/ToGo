@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToGo"
-        xmlns:ToGoDB="clr-namespace:ToGo;assembly=ToGo" x:Class="ToGo.Owner_Manager"
+        xmlns:ToGoDB="clr-namespace:ToGo;assembly=ToGo" xmlns:WPF="clr-namespace:Microsoft.Toolkit.Win32.UI.Controls.WPF;assembly=Microsoft.Toolkit.Win32.UI.Controls" x:Class="ToGo.Owner_Manager"
         mc:Ignorable="d"
         Title="MainWindow" Height="916.177" Width="1031.588" Loaded="Window_Loaded">
     <Window.Resources>
@@ -95,9 +95,7 @@
                             </DataGrid>
                         </ScrollViewer>
                     </Viewbox>
-                    <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="8,3,3,6" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
-
-                    </GridSplitter>
+                    <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="8,3,3,6" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
                     <Label Content="飯店資料查詢更新" Margin="10,14,248,22" Grid.Column="2" BorderBrush="#FF48E1F9" FontSize="16" FontFamily="Candara" FontStyle="Italic" FontWeight="Bold" Foreground="#FFBDBD03"/>
                     <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="49,23,0,0" Grid.Row="1" VerticalAlignment="Top" Height="567" Width="377">
                         <Grid.ColumnDefinitions>
@@ -281,7 +279,7 @@
                     </Calendar>
                     <DatePicker x:Name="datePicker1" Height="25" HorizontalAlignment="Left" Margin="30,62,0,0" VerticalAlignment="Top" Width="115" DisplayDateEnd="{Binding SelectedDate, ElementName=datePicker2}" SelectedDateChanged="datePicker2_SelectedDateChanged" />
                     <DatePicker x:Name="datePicker2" Height="25" HorizontalAlignment="Left" Margin="192,65,0,0" VerticalAlignment="Top" Width="115" DisplayDateStart = "{Binding SelectedDate, ElementName=datePicker1}" SelectedDateChanged="datePicker1_SelectedDateChanged"/>
-                    <DataGrid  x:Name="DataGrid1" HorizontalAlignment="Left" Height="301" Margin="19,96,0,0" VerticalAlignment="Top" Width="456"  SelectionChanged="DataGrid1_SelectionChanged" ItemsSource="{Binding}"/>
+                    <DataGrid  x:Name="DataGrid1" HorizontalAlignment="Left" Height="301" Margin="19,96,0,0" VerticalAlignment="Top" Width="456"  SelectionChanged="DataGrid1_SelectionChanged" />
                     <ComboBox x:Name="cbroom" HorizontalAlignment="Left" Margin="187,22,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="ComboBox_SelectionChanged" Height="30"/>
                     <ComboBox x:Name="cbhotelname" HorizontalAlignment="Left" Height="30" Margin="25,20,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="cbcityname_SelectionChanged" />
                     <Label  Content="總房間數:" HorizontalAlignment="Left" Margin="499,40,0,0" VerticalAlignment="Top" Width="70"/>
@@ -291,6 +289,11 @@
                     <Label x:Name="mtroom" Content="" HorizontalAlignment="Left" Height="29" Margin="560,79,0,0" VerticalAlignment="Top" Width="100"/>
                     <Label x:Name="chroom" Content="" HorizontalAlignment="Left" Height="29" Margin="562,113,0,0" VerticalAlignment="Top" Width="100"/>
 
+                </Grid>
+            </TabItem>
+            <TabItem Header="MyOwner報表" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="116" Margin="76,0,-133,0" BorderBrush="#FFACACAC" Background="#FFBFF05B">
+                <Grid Background="#FFE5E5E5">
+                    <WPF:WebView x:Name="showtime" HorizontalAlignment="Stretch" />
                 </Grid>
             </TabItem>
         </TabControl>
