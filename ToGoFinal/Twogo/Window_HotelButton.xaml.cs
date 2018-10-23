@@ -21,9 +21,55 @@ namespace ToGo
     {
 
 
-        public Window_HotelButton()
+        public Window_HotelButton(int _hotelID) //加入一個建構子方法 當這個控制向被new 出來的時候 用Linq去找他的3張圖片
         {
             InitializeComponent();
+
+            var q = this.dbContext.HotelImages.Where(x => x.HotelID == _hotelID).Select(x => x.Image);
+
+            int i = 0; //變數i 用來判斷值是否為1
+            foreach (var item in q)
+            {
+                if (i == 0) //若i 變數的值為1 就把hotelImage裡面的第一張圖片當作最大的圖
+                {
+                    BitmapImage bi3 = new BitmapImage();
+                    bi3.BeginInit();
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(item);
+                    bi3.StreamSource = ms;
+                    bi3.EndInit();
+                    this.image1.Source = bi3;
+                    //直接將剛剛轉好的圖檔 當作Image1的Source
+                }
+                else if (i == 1) //其餘圖片皆為小圖
+                {
+                    BitmapImage bi3 = new BitmapImage();
+                    bi3.BeginInit();
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(item);
+                    bi3.StreamSource = ms;
+                    bi3.EndInit();
+                    this.image2.Source = bi3;
+                }
+                else if (i == 2)
+                {
+                    BitmapImage bi3 = new BitmapImage();
+                    bi3.BeginInit();
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(item);
+                    bi3.StreamSource = ms;
+                    bi3.EndInit();
+                    this.image3.Source = bi3;
+                }
+                else if (i == 3)
+                {
+                    BitmapImage bi3 = new BitmapImage();
+                    bi3.BeginInit();
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(item);
+                    bi3.StreamSource = ms;
+                    bi3.EndInit();
+                    this.image4.Source = bi3;
+                }
+                i += 1;
+            }
+
         }
 
         public object DESC
@@ -73,7 +119,7 @@ namespace ToGo
                 _tempUrl = value;
             }
         }
-        global::ToGo.ToGoEntities dbcontent = new ToGoEntities();
+        global::ToGo.ToGoEntities dbContext = new ToGoEntities();
 
         private void Btn_Map_Click(object sender, RoutedEventArgs e)
         {
@@ -87,7 +133,7 @@ namespace ToGo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var q = this.dbcontent.Hotels.Where(x => x.HotelNameCN == HotelName.Content).Select(x => x.HotelID);
+            var q = this.dbContext.Hotels.Where(x => x.HotelNameCN == HotelName.Content).Select(x => x.HotelID);
             int tempHotelID = 0;
             foreach (var item in q)
             {

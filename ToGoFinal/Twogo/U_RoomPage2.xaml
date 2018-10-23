@@ -10,7 +10,7 @@
     <Border Height="450" Width="800" CornerRadius="30" Background="LightGray" >
 
         <Grid>
-            <Image HorizontalAlignment="Left" Height="97" Margin="32,10,0,0" VerticalAlignment="Top" Width="185" Source="Image/下載 (1).jpg" Stretch="Fill"/>
+            <Image Name="image1" HorizontalAlignment="Left" Height="97" Margin="32,10,0,0" VerticalAlignment="Top" Width="185" Source="Image/下載 (1).jpg" Stretch="Fill"/>
             <Grid  x:Name="SmallGrid" ShowGridLines="True" HorizontalAlignment="Left" Height="211" Margin="32,186,0,0" VerticalAlignment="Top" Width="737" Background="White">
                 <Grid.Effect>
                     <DropShadowEffect/>
@@ -45,8 +45,8 @@
             <Label x:Name="RoomNameRoomPage"  HorizontalAlignment="Left" Height="24" Margin="111,416,0,0" VerticalAlignment="Top" Width="72"/>
             <Label x:Name="RoomIDRoomPage"  HorizontalAlignment="Left" Margin="183,416,0,0" VerticalAlignment="Top"/>
             <WrapPanel HorizontalAlignment="Left" Height="100" Margin="393,143,0,0" VerticalAlignment="Top" Width="100"/>
-            <Image HorizontalAlignment="Left" Height="57" Margin="32,112,0,0" VerticalAlignment="Top" Width="94" Source="Image/房間圖二.jpg" Stretch="Fill"/>
-            <Image HorizontalAlignment="Left" Height="57" Margin="131,112,0,0" VerticalAlignment="Top" Width="86" Source="Image/房間3.JPG" Stretch="Fill"/>
+            <Image Name="image2" HorizontalAlignment="Left" Height="57" Margin="32,112,0,0" VerticalAlignment="Top" Width="86" Source="Image/房間圖二.jpg" Stretch="Fill"/>
+            <Image Name="image3" HorizontalAlignment="Left" Height="57" Margin="131,112,0,0" VerticalAlignment="Top" Width="86" Source="Image/房間3.JPG" Stretch="Fill"/>
 
         </Grid>
 

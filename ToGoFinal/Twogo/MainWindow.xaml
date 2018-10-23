@@ -18,7 +18,7 @@
             </Border>
             <Label Content="國家或城市" Margin="652,335,1125,707" FontSize="24" FontWeight="Bold" Foreground="#FF494747"/>
             <Label Content="日期" Foreground="#FF494747"  Margin="650,473,1198,569" FontSize="24" FontWeight="Bold"/>
-            <TextBox Name="TextBox_City" Foreground="#FF494747" HorizontalAlignment="Left" Height="51" Margin="666,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontSize="36" KeyUp="TextBox_City_KeyUp"/>
+            <ComboBox Name="CityComboBox" FontSize="24" Text="輸入城市" IsEditable="True" HorizontalAlignment="Left" Margin="666,387,0,0" VerticalAlignment="Top" Width="360" KeyUp="ComboBox_KeyUp" Height="42" />
             <Label Content="住宿房數" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1066,333,0,0" VerticalAlignment="Top"/>
             <TextBox Text="1" Name="TextBox_Room" HorizontalAlignment="Left" Height="51" Margin="1082,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="36" />
             <Label Content="間客房" Foreground="#FF494747"   FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="1273,387,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.323,-0.126"/>
@@ -48,7 +48,7 @@
             <Button  Content="隱私權政策" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="270,1024,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
             <Button  Content="職缺消息" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="401,1024,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16"/>
             <Button  Content="我是房東" Foreground="Snow" BorderThickness="0" Background="Gray"   HorizontalAlignment="Left" Margin="524,1024,0,0" VerticalAlignment="Top" Width="81" Height="56" FontSize="16" Click="Button_Click_3"/>
-            <Expander Name="exp1" FontSize="19" Header="請拖拉選取" IsExpanded="False" Margin="666,594,894,187">
+            <Expander Name="exp1" FontSize="19" Header="請拖拉選取" IsExpanded="True" Margin="666,594,894,187">
                 <Viewbox HorizontalAlignment="Center" Margin="8,0,10,0" VerticalAlignment="Center" Stretch="Fill" Height="280" Width="340" IsManipulationEnabled="True">
                     <Calendar Name="CalendarSearch" SelectionMode="SingleRange" SelectedDatesChanged="searchDate_SelectedDatesChanged" Height="174" Width="192"/>
                 </Viewbox>

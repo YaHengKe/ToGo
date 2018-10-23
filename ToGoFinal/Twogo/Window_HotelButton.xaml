@@ -13,10 +13,10 @@
                     <ColumnDefinition Width="789*"/>
                     <ColumnDefinition Width="203*"/>
                 </Grid.ColumnDefinitions>
-                <Image  HorizontalAlignment="Left" Height="248" Margin="20,17,0,0" VerticalAlignment="Top" Width="379" Source="Image/外觀.JPG"/>
-                <Image HorizontalAlignment="Left" Height="74" Margin="21,243,0,0" VerticalAlignment="Top" Width="116" Source="Image/廁所.JPG"/>
-                <Image HorizontalAlignment="Left" Height="92" Margin="141,243,0,-16" VerticalAlignment="Top" Width="119" Source="Image/房間.JPG"/>
-                <Image HorizontalAlignment="Left" Height="116" Margin="284,243,0,-40" VerticalAlignment="Top" Width="115" Source="Image/百貨.JPG"/>
+                <Image Name="image1"  HorizontalAlignment="Left" Height="221" Margin="20,17,0,0" VerticalAlignment="Top" Width="379" Source="Image/外觀.JPG" Stretch="Fill"/>
+                <Image Name="image2" HorizontalAlignment="Left" Height="75" Margin="21,243,0,0" VerticalAlignment="Top" Width="115" Source="Image/廁所.JPG" Stretch="Fill"/>
+                <Image Name="image3" HorizontalAlignment="Left" Height="75" Margin="154,243,0,0" VerticalAlignment="Top" Width="116" Source="Image/房間.JPG" Stretch="Fill"/>
+                <Image Name="image4" HorizontalAlignment="Left" Height="75" Margin="284,243,0,-40" VerticalAlignment="Top" Width="115" Source="Image/百貨.JPG" Stretch="Fill"/>
                 <Label x:Name="HotelName" Content="飯店名" HorizontalAlignment="Left" Margin="440,17,0,0" VerticalAlignment="Top" FontSize="24" />
                 <Image HorizontalAlignment="Left" Height="40" Margin="440,78,0,0" VerticalAlignment="Top" Width="46" Source="Image/placeholder.png"/>
                 <Label Name="Lable_Address" Content="地址" HorizontalAlignment="Left" Margin="500,78,0,0" VerticalAlignment="Top" FontSize="20" Height="40" />
@@ -34,7 +34,7 @@
                 <Label Content="/晚" HorizontalAlignment="Left" Margin="157,273,0,0" VerticalAlignment="Top" FontSize="20" Grid.Column="1" FontWeight="Bold"/>
                 <Button Content="" Grid.ColumnSpan="2" Opacity="0" Click="Button_Click"/>
                 <Button x:Name="Btn_Map" Content="查看地圖" BorderThickness="0" HorizontalAlignment="Left" Margin="601,87,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" Foreground="#FF2C23EA" FontSize="16" Height="22" Click="Btn_Map_Click"/>
-
+                
             </Grid>
         </Border>
     </Viewbox>

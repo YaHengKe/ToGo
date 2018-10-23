@@ -29,6 +29,9 @@ namespace ToGo
 
             this.CalendarSearch.DisplayDateStart = DateTime.Today;
             this.CalendarSearch.DisplayDateEnd = DateTime.Today.AddMonths(3);
+            var q = dbContext.Cities.Select(x => x.CityCHName).ToList();
+            CityComboBox.ItemsSource = q;
+            //將各個城市加入ComboBox(City)
         }
 
         public static string LoginFirstName; // 登入成功後存取名字
@@ -80,7 +83,7 @@ namespace ToGo
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (TextBox_City.Text == "")
+            if (CityComboBox.Text == "" || CityComboBox.Text == "請輸入城市")/*TextBox_City.Text == "")*/
             {
                 City_Require.Opacity = 1;
             }
@@ -103,7 +106,9 @@ namespace ToGo
 
                 _StartDate = CalendarSearch.SelectedDates[0]; //(DateTime)SearchSDate.Content;
                 _EndDate = CalendarSearch.SelectedDates[CalendarSearch.SelectedDates.Count - 1]; //(DateTime)SearchEDate.Content;
-                _City = TextBox_City.Text;
+                //_City = TextBox_City.Text;
+                _City = CityComboBox.Text;
+                //把TextBox換成ComboBox
                 _RoomType = int.Parse(TxtRoomType.Text);
 
                 using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=ToGo;Integrated Security=True"))
@@ -112,12 +117,12 @@ namespace ToGo
                     {
                         cmd.Connection = conn;
 
-                        cmd.CommandText = "select  r1.CityCHName,r1.HotelNameCN,r1.GoogleMapUri,min(r1.UnitPrice) from V_Room r1 where r1.CityCHName=@CityCHName and  not exists (select 1 from( select r.CityCHName,r.HotelID, r.RoomID from V_Room r left join v_order o on r.HotelID= o.HotelID and r.RoomID=o.RoomID where r.CityCHName=@CityCHName and r.RoomType=@RoomType and  @SearchStartDate  between ISNULL( o.StartDate, '2099-11-05') and ISNULL( dateadd( day,-1,o.EndDate),'2099-11-05')or  @SearchEndDate   between ISNULL( o.StartDate, '2099-11-05') and ISNULL(  o.EndDate,'2099-11-05')or o.StartDate between @SearchStartDate and @SearchEndDate or DATEADD(day,-1 ,o.EndDate) between @SearchStartDate and @SearchEndDate) r2 where r1.CityCHName =r2.CityCHName and r1.HotelID =r2.HotelID and r1.RoomID  =r2.RoomID)group by r1.CityCHName,r1.HotelNameCN,r1.GoogleMapUri";
+                        cmd.CommandText = "select  r1.CityCHName,r1.HotelNameCN,r1.GoogleMapUri,r1.HotelID,min(r1.UnitPrice) from V_Room r1 where r1.CityCHName=@CityCHName and  not exists (select 1 from( select r.CityCHName,r.HotelID, r.RoomID from V_Room r left join v_order o on r.HotelID= o.HotelID and r.RoomID=o.RoomID where r.CityCHName=@CityCHName and r.RoomType=@RoomType and  @SearchStartDate  between ISNULL( o.StartDate, '2099-11-05') and ISNULL( dateadd( day,-1,o.EndDate),'2099-11-05')or  @SearchEndDate   between ISNULL( o.StartDate, '2099-11-05') and ISNULL(  o.EndDate,'2099-11-05')or o.StartDate between @SearchStartDate and @SearchEndDate or DATEADD(day,-1 ,o.EndDate) between @SearchStartDate and @SearchEndDate) r2 where r1.CityCHName =r2.CityCHName and r1.HotelID =r2.HotelID and r1.RoomID  =r2.RoomID)group by r1.CityCHName,r1.HotelNameCN,r1.GoogleMapUri,r1.HotelID";
                         cmd.Parameters.Add("@RoomType", SqlDbType.Int).Value = _RoomType;
                         cmd.Parameters.Add("@CityCHName", SqlDbType.NVarChar).Value = _City;
                         cmd.Parameters.Add("@SearchStartDate", SqlDbType.Date).Value = _StartDate;
                         cmd.Parameters.Add("@SearchEndDate", SqlDbType.Date).Value = _EndDate;
-                        
+
                         conn.Open();
                         Hotel_Search ww = new Hotel_Search();
                         using (SqlDataReader dr = cmd.ExecuteReader())
@@ -125,17 +130,17 @@ namespace ToGo
                             int a = 0;//搜尋出的資料筆數
                             while (dr.Read())
                             {
-                                Window_HotelButton xx = new Window_HotelButton();
-                                xx.City = dr[0];//CityCHName
-                                xx.DESC = dr[1];//HotelNameCN
-                                xx.TempUrl = dr[2].ToString(); //URL
-                                xx.price = dr[3];//UnitPrice                                
+                                Window_HotelButton xx = new Window_HotelButton((int)dr["HotelID"]); //利用建構子方法 把HotelID 帶入                                
+                                xx.City = dr["CityCHName"];//CityCHName
+                                xx.DESC = dr["HotelNameCN"];//HotelNameCN
+                                xx.TempUrl = dr["GoogleMapUri"].ToString(); //URL
+                                xx.price = dr[4];//UnitPrice                                
                                 ww.StackPanel_ShowHotel.Children.Add(xx);
                                 a++;
                             }
                             ww.Label_HotelCount.Content = a;
                         }
-                        //this.Close();
+                        this.Close();
                         ww.Show();
                     }
                 }
@@ -158,6 +163,26 @@ namespace ToGo
         private void TextBox_City_KeyUp(object sender, KeyEventArgs e)
         {
             exp1.IsExpanded = true;
+        }
+
+        private void ComboBox_KeyUp(object sender, KeyEventArgs e) //允許使用者輸入欲搜尋的城市，並將符合條件的城市秀出來
+        {
+            ComboBox cmb = (ComboBox)sender;
+            CollectionView itemsViewOriginal = (CollectionView)CollectionViewSource.GetDefaultView(cmb.ItemsSource);
+
+            itemsViewOriginal.Filter = ((o) =>
+            {
+                if (string.IsNullOrEmpty(cmb.Text)) return false;
+                else
+                {
+                    if (((string)o).StartsWith(cmb.Text)) return true;
+                    else return false;
+                }
+            });
+
+            cmb.IsDropDownOpen = true;
+            itemsViewOriginal.Refresh();
+
         }
     }
 }

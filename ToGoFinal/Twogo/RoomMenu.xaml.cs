@@ -140,7 +140,7 @@ namespace ToGo
                 if (flag)
                 {
                     int Quantity = 1;
-                    RoomPage2 rp2 = new RoomPage2();
+                    RoomPage2 rp2 = new RoomPage2(n.HotelNameCN, n.HotelID);
                     rp2.Margin = marginnuber;
                     rp2.RoomName.Content = n.RoomNameCN;
                     rp2.RoomUnitPrice.Content = $"{n.UnitPrice:c0}";
