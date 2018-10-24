@@ -30,8 +30,17 @@ namespace ToGo
             this.CalendarSearch.DisplayDateStart = DateTime.Today;
             this.CalendarSearch.DisplayDateEnd = DateTime.Today.AddMonths(3);
             var q = dbContext.Cities.Select(x => x.CityCHName).ToList();
-            CityComboBox.ItemsSource = q;
+            //CityComboBox.ItemsSource = q;
             //將各個城市加入ComboBox(City)
+            var q1 = dbContext.Cities.Select(x => new { x.Country.CountryCHName, x.CityCHName });
+            List<string> tempList = new List<string>();
+            
+            foreach (var item in q1)
+            {
+                tempList.Add(item.CountryCHName + " " + item.CityCHName);//將國家和城市同時加入ComboBox，並以空白區分
+            }
+            CityComboBox.ItemsSource = tempList;
+
         }
 
         public static string LoginFirstName; // 登入成功後存取名字
@@ -42,13 +51,7 @@ namespace ToGo
         //MemberID加入
         public static int _MemberNumber = 0;
         //MemberNumber 等於0 表示非會員
-
-        private void AddDataToTextBox()
-        {
-            //===========================================
-            // Todo:首頁國家、城市搜尋TextBox自動帶入城市名
-            //===========================================
-        }
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -106,8 +109,11 @@ namespace ToGo
 
                 _StartDate = CalendarSearch.SelectedDates[0]; //(DateTime)SearchSDate.Content;
                 _EndDate = CalendarSearch.SelectedDates[CalendarSearch.SelectedDates.Count - 1]; //(DateTime)SearchEDate.Content;
-                //_City = TextBox_City.Text;
-                _City = CityComboBox.Text;
+                                                                                                 //_City = TextBox_City.Text;               
+                                                                                                 //CityComboBox.Text.
+                _City = ReturnCityCnName(); //呼叫新定義的方法
+
+                //_City = CityComboBox.Text;
                 //把TextBox換成ComboBox
                 _RoomType = int.Parse(TxtRoomType.Text);
 
@@ -175,7 +181,7 @@ namespace ToGo
                 if (string.IsNullOrEmpty(cmb.Text)) return false;
                 else
                 {
-                    if (((string)o).StartsWith(cmb.Text)) return true;
+                    if (((string)o).Contains(cmb.Text)) return true;
                     else return false;
                 }
             });
@@ -183,6 +189,22 @@ namespace ToGo
             cmb.IsDropDownOpen = true;
             itemsViewOriginal.Refresh();
 
+        }
+        
+        private string ReturnCityCnName() //這個方法用來把ComboBox(City)裡面的資料「僅傳回城市」
+        {
+            string s = "";
+            bool _Space = false;
+            foreach (var item in CityComboBox.Text.ToString())
+            {
+                if (item == ' ' || _Space == true) //遇到空白就才加入
+                {
+                    _Space = true;  //遇到空白就把值改為true 這樣下一圈迴圈進來以後就會繼續執行
+
+                    s += item; 
+                }
+            }
+            return s.Trim();   //去掉空白後傳回
         }
     }
 }
